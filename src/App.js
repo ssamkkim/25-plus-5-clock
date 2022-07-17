@@ -12,6 +12,7 @@ class App extends React.Component {
     };
     this.handleInc = this.handleInc.bind(this);
     this.handleDec = this.handleDec.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleInc(e) {
@@ -42,6 +43,15 @@ class App extends React.Component {
     }
   }
 
+  handleReset() {
+    this.setState({
+      break: 5,
+      session: 25,
+      label: 'Session',
+      time: '25:00'
+    });
+  }
+
   render(){
     return (
       <div id="app">
@@ -66,7 +76,7 @@ class App extends React.Component {
           </div>
           <div id="button-container">
             <button id="start_stop"></button>
-            <button id="reset"></button>
+            <button id="reset" onClick={this.handleReset}></button>
           </div>
         </div>
 
