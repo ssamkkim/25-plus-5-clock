@@ -10,7 +10,38 @@ class App extends React.Component {
       label: 'Session',
       time: '25:00'
     };
+    this.handleInc = this.handleInc.bind(this);
+    this.handleDec = this.handleDec.bind(this);
   }
+
+  handleInc(e) {
+    if(e.target.id === "break-increment") {
+      this.setState(prevState => ({
+        break: prevState.break + 1,
+      }));
+    } else if(e.target.id === "session-increment") {
+      this.setState(prevState => ({
+        session: prevState.session + 1,
+      }));
+    }
+  }
+
+  handleDec(e) {
+    if(e.target.id === "break-decrement") {
+      if(this.state.break > 1) {
+        this.setState(prevState => ({
+          break: prevState.break - 1,
+        }));
+      }
+    } else if(e.target.id === "session-decrement") {
+      if(this.state.session > 1) {
+        this.setState(prevState => ({
+          session: prevState.session - 1,
+        }));
+      }
+    }
+  }
+
   render(){
     return (
       <div id="app">
@@ -18,14 +49,14 @@ class App extends React.Component {
           <div id="length-container">
             <div id="break-container">
               <div id="break-label">Break Length</div>
-              <button id="break-decrement"></button>
-              <button id="break-increment"></button>
+              <button id="break-decrement" onClick={this.handleDec}></button>
+              <button id="break-increment" onClick={this.handleInc}></button>
               <div id="break-length">{this.state.break}</div>
               </div>
             <div id="session-container">
               <div id="session-label">Session Length</div>
-              <button id="session-decrement"></button>
-              <button id="session-increment"></button>
+              <button id="session-decrement" onClick={this.handleDec}></button>
+              <button id="session-increment" onClick={this.handleInc}></button>
               <div id="session-length">{this.state.session}</div>
             </div>
           </div>
