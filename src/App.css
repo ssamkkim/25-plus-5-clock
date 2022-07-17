@@ -13,3 +13,9 @@
     display: flex;
     flex-direction: row;
 }
+
+#break-control-container, #session-control-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

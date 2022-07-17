@@ -60,15 +60,19 @@ class App extends React.Component {
           <div id="length-container">
             <div id="break-container">
               <div id="break-label">Break Length</div>
-              <button id="break-decrement" onClick={this.handleDec}><FaArrowDown /></button>
-              <button id="break-increment" onClick={this.handleInc}><FaArrowUp /></button>
-              <div id="break-length">{this.state.break}</div>
+              <div id="break-control-container">
+                <button id="break-decrement" onClick={this.handleDec}><FaArrowDown /></button>
+                <div id="break-length">{this.state.break}</div>
+                <button id="break-increment" onClick={this.handleInc}><FaArrowUp /></button>
               </div>
+            </div>
             <div id="session-container">
               <div id="session-label">Session Length</div>
-              <button id="session-decrement" onClick={this.handleDec}><FaArrowDown /></button>
-              <button id="session-increment" onClick={this.handleInc}><FaArrowUp /></button>
-              <div id="session-length">{this.state.session}</div>
+              <div id="session-control-container">
+                <button id="session-decrement" onClick={this.handleDec}><FaArrowDown /></button>
+                <div id="session-length">{this.state.session}</div>
+                <button id="session-increment" onClick={this.handleInc}><FaArrowUp /></button>
+              </div>
             </div>
           </div>
           <div id="display">
