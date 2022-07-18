@@ -61,17 +61,17 @@ class App extends React.Component {
             <div id="break-container">
               <div id="break-label">Break Length</div>
               <div id="break-control-container">
-                <button id="break-decrement" onClick={this.handleDec}><FaArrowDown /></button>
+                <FaArrowDown id="break-decrement" onClick={this.handleDec} />
                 <div id="break-length">{this.state.break}</div>
-                <button id="break-increment" onClick={this.handleInc}><FaArrowUp /></button>
+                <FaArrowUp id="break-increment" onClick={this.handleInc} />
               </div>
             </div>
             <div id="session-container">
               <div id="session-label">Session Length</div>
               <div id="session-control-container">
-                <button id="session-decrement" onClick={this.handleDec}><FaArrowDown /></button>
+                <FaArrowDown id="session-decrement" onClick={this.handleDec} />
                 <div id="session-length">{this.state.session}</div>
-                <button id="session-increment" onClick={this.handleInc}><FaArrowUp /></button>
+                <FaArrowUp id="session-increment" onClick={this.handleInc} />
               </div>
             </div>
           </div>
@@ -80,8 +80,8 @@ class App extends React.Component {
             <div id="time-left">{this.state.time}</div>
           </div>
           <div id="button-container">
-            <button id="start_stop"><FaPlay /><FaStop /></button>
-            <button id="reset" onClick={this.handleReset}><FaRedoAlt /></button>
+            <FaPlay id="start_stop" /><FaStop id="start_stop" />
+            <FaRedoAlt id="reset" onClick={this.handleReset} />
           </div>
         </div>
 
