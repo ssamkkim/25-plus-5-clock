@@ -19,3 +19,24 @@
     justify-content: center;
     align-items: center;
 }
+
+#break-decrement, #break-increment, #session-decrement, #session-increment, #start_stop, #reset {
+    cursor: pointer;
+}
+
+#display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
