@@ -58,64 +58,68 @@ class App extends React.Component {
   }
 
   handleInc(e) {
-    if(e.target.id === "break-increment") {
-      if(this.state.break < 60) {
-        if(this.state.label === 'Break') {
-          this.setState(prevState => ({
-            break: prevState.break + 1,
-            time: prevState.time + 60
-          }));
-        } else {
-          this.setState(prevState => ({
-            break: prevState.break + 1,
-          }));
+    if(!this.state.isPlaying) {
+      if(e.target.id === "break-increment") {
+        if(this.state.break < 60) {
+          if(this.state.label === 'Break') {
+            this.setState(prevState => ({
+              break: prevState.break + 1,
+              time: prevState.time + 60
+            }));
+          } else {
+            this.setState(prevState => ({
+              break: prevState.break + 1,
+            }));
+          }
+        }
+        
+      } else if(e.target.id === "session-increment" && this.state.label === 'Session') {
+        if(this.state.session < 60) {
+          if(this.state.label === 'Session') {
+            this.setState(prevState => ({
+              session: prevState.session + 1,
+              time: prevState.time + 60
+            }));
+          } else {
+            this.setState(prevState => ({
+              session: prevState.session + 1,
+            }));
+          }
         }
       }
-      
-    } else if(e.target.id === "session-increment" && this.state.label === 'Session') {
-      if(this.state.session < 60) {
-        if(this.state.label === 'Session') {
-          this.setState(prevState => ({
-            session: prevState.session + 1,
-            time: prevState.time + 60
-          }));
-        } else {
-          this.setState(prevState => ({
-            session: prevState.session + 1,
-          }));
-        }
-      }
-    }
+  }
   }
 
   handleDec(e) {
-    if(e.target.id === "break-decrement") {
-      if(this.state.break > 1) {
-        if(this.state.label === 'Break') {
-          this.setState(prevState => ({
-            break: prevState.break - 1,
-            time: prevState.time - 60
-          }));
-        } else {
-          this.setState(prevState => ({
-            break: prevState.break - 1,
-          }));
+    if(!this.state.isPlaying) {
+      if(e.target.id === "break-decrement") {
+        if(this.state.break > 1) {
+          if(this.state.label === 'Break') {
+            this.setState(prevState => ({
+              break: prevState.break - 1,
+              time: prevState.time - 60
+            }));
+          } else {
+            this.setState(prevState => ({
+              break: prevState.break - 1,
+            }));
+          }
+          
         }
-        
-      }
-    } else if(e.target.id === "session-decrement") {
-      if(this.state.session > 1) {
-        if(this.state.label === 'Session') {
-          this.setState(prevState => ({
-            session: prevState.session - 1,
-            time: prevState.time - 60
-          }));
-        } else {
-          this.setState(prevState => ({
-            session: prevState.session - 1,
-          }));
+      } else if(e.target.id === "session-decrement") {
+        if(this.state.session > 1) {
+          if(this.state.label === 'Session') {
+            this.setState(prevState => ({
+              session: prevState.session - 1,
+              time: prevState.time - 60
+            }));
+          } else {
+            this.setState(prevState => ({
+              session: prevState.session - 1,
+            }));
+          }
+          
         }
-        
       }
     }
   }
