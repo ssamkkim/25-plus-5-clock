@@ -9,7 +9,7 @@ class App extends React.Component {
       break: 5,
       session: 25,
       label: 'Session',
-      time: 25 * 60,
+      time: 3,
       isPlaying: false,
       timeInterval: undefined
     };
@@ -28,6 +28,9 @@ class App extends React.Component {
       this.timeInterval = setInterval(() => {
 
         if(this.state.time === 0) {
+          const audio = this.refs.beep; 
+          audio.currentTime = 0;
+          audio.play();
           this.setState({
             label: (this.state.label === 'Session') ? 'Break' : 'Session',
             time: (this.state.label === 'Session') ? (this.state.break * 60) : (this.state.session * 60),
@@ -51,9 +54,10 @@ class App extends React.Component {
   }
 
   convertTime = (count) => { 
-    const mins = Math.floor(count / 60);
+    let mins = Math.floor(count / 60);
     let secs = count % 60; 
     secs = secs < 10 ? ('0'+secs) : secs;
+    mins = mins < 10 ? ('0'+mins) : mins;
     return `${mins}:${secs}`;
   }
 
@@ -125,6 +129,9 @@ class App extends React.Component {
   }
 
   handleReset() {
+    const audio = this.refs.beep; 
+    audio.currentTime = 0;
+    audio.pause();
     clearInterval(this.timeInterval);
     this.setState({
       break: 5,
@@ -165,6 +172,7 @@ class App extends React.Component {
             <FaPlay id="start_stop" className="button" onClick={this.handleStartStop} />
             <FaRedoAlt id="reset" className="button" onClick={this.handleReset} />
           </div>
+          <audio src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" ref="beep" id="beep" />
         </div>
 
       </div>
